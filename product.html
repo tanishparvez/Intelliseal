@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Seal™ - Next Generation Sealing Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4A90E2;
+      --primary-color-light: #E8F4FF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--primary-color-light);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .primary-bg {
+      background-color: var(--primary-color);
+    }
+
+    .primary-text {
+      color: var(--primary-color);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #2C5EBD 100%);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .hover-lift {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+     @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .scroll-indicator {
+      animation: scrollIndicate 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollIndicate {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    input:focus+label,
+    textarea:focus+label,
+    input:not(:placeholder-shown)+label,
+    textarea:not(:placeholder-shown)+label {
+      transform: translateY(-24px) scale(0.8);
+      color: #4A90E2;
+    }
+
+    .form-group label {
+      transition: all 0.3s ease;
+      transform-origin: left top;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #4A90E2;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .counter-value {
+      counter-reset: count 0;
+      animation: count-up 2s forwards;
+    }
+
+    @keyframes count-up {
+      from {
+        counter-increment: count 0;
+      }
+
+      to {
+        counter-increment: count attr(data-target);
+      }
+    }
+
+    .counter-value::after {
+      content: counter(count);
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .video-container:hover .play-button {
+      transform: scale(1.1);
+    }
+
+    .back-to-top {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .custom-checkbox {
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+    }
+
+    .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #E8F4FF;
+      border-radius: 4px;
+    }
+
+    .custom-checkbox input:checked~.checkmark {
+      background-color: #4A90E2;
+      border-color: #4A90E2;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    .custom-checkbox input:checked~.checkmark:after {
+      display: block;
+    }
+
+    .custom-checkbox .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .custom-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .custom-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #E8F4FF;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: #4A90E2;
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(26px);
+    }
+    .rounded-button {
+  border-radius: 9999px; 
+}
+
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Seal™ - Next Generation Sealing Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #4A90E2;
+        --primary-color-light: #E8F4FF;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        background-color: var(--primary-color-light);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .primary-bg {
+        background-color: var(--primary-color);
+      }
+
+      .primary-text {
+        color: var(--primary-color);
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #2C5EBD 100%);
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .hover-lift {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        background-color: #1a202c;
+        /* Matches bg-gray-900 */
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+      }
+
+      footer h4 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.125rem;
+        /* text-lg */
+        font-weight: 600;
+      }
+
+      footer p,
+      footer li a,
+      footer span {
+        color: #a0aec0;
+        /* text-gray-400 */
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      footer li a:hover,
+      footer a:hover {
+        color: #ffffff;
+        transition: color 0.3s ease;
+      }
+
+      footer .social-icons a {
+        background-color: #2d3748;
+        /* bg-gray-800 */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        transition: background-color 0.3s ease;
+      }
+
+      footer .social-icons a:hover {
+        background-color: #4A90E2;
+        /* Matches primary */
+      }
+
+      footer input[type="email"] {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem 0 0 0.5rem;
+        border: none;
+        outline: none;
+        font-size: 0.9rem;
+      }
+
+      footer button[type="submit"] {
+        background-color: #4A90E2;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        transition: background-color 0.3s ease;
+      }
+
+      footer button[type="submit"]:hover {
+        background-color: #2b6cb0;
+        /* Darker shade of primary */
+      }
+
+      footer .border-t {
+        border-top: 1px solid #2d3748;
+        /* border-gray-800 */
+      }
+
+      footer .payment-icons i {
+        color: #e2e8f0;
+        /* Slightly lighter gray */
+        font-size: 1.25rem;
+      }
+      .rounded-button {
+  border-radius: 9999px; /* Makes it pill-shaped */
+}
+
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <!-- Header (from previous implementation) -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="#home" class="flex items-center">
+          <img src="./Image/logo.png" alt="INTELLISEAL LLP Logo" class="h-8 w-auto md:h-10">
+        </a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="./index.html"
+            class="text-gray-700 hover:text-[#4A90E2] transition duration-300 transform hover:scale-105">Home</a>
+          <a href="#primarily-used"
+            class="text-gray-700 hover:text-[#4A90E2] transition duration-300 transform hover:scale-105">Primarily Used</a>
+          <a href="#key-features" class="text-gray-700 hover:text-[#4A90E2] transition duration-300 transform hover:scale-105">Key Features</a>
+            <a href="#applications"
+            class="text-gray-700 hover:text-[#4A90E2] transition duration-300 transform hover:scale-105">Applications</a>
+          <a href="#why-choose" class="text-gray-700 hover:text-[#4A90E2] transition duration-300 transform hover:scale-105">Why Choose us</a>
+          <a href="#contact"
+            class="bg-gradient-to-r from-[#4A90E2] to-blue-500 text-white px-6 py-2 rounded-full whitespace-nowrap transition duration-300 hover:shadow-lg">Contact
+            Us</a>
+        </nav>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (from previous implementation) -->
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full bg-white z-40 pt-20 h-full">
+      <div class="flex flex-col space-y-4 px-6">
+        <a href="./index.html" class="text-gray-700 hover:text-[#4A90E2] py-2">Home</a>
+        <a href="#primarily-used" class="text-gray-700 hover:text-[#4A90E2] py-2">Primarily Used</a>
+        <a href="#key-features" class="text-gray-700 hover:text-[#4A90E2] py-2">Key Features</a>
+        <a href="#applications" class="text-gray-700 hover:text-[#4A90E2] py-2">Applications</a>
+        <a href="#why-choose" class="text-gray-700 hover:text-[#4A90E2] py-2">Why Choose us</a>
+        <a href="#contact"
+          class="bg-gradient-to-r from-[#4A90E2] to-blue-500 text-white px-6 py-2 rounded-full whitespace-nowrap text-center">Contact
+          Us</a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 mb-16">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="bg-blue-50 inline-block px-4 py-2 rounded-full mb-4 text-sm text-[#4A90E2]">
+              Intelligent Sealing Solution
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+              Smart Seal™
+              <br />
+              <span class="text-[#4A90E2]">The Next Generation of Sealing Technology</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8">
+              One Seal. Infinite Possibilities.
+              Precision-engineered for performance, protection, and sustainability.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#contact"
+                class="primary-bg text-white px-8 py-3 rounded-full hover:opacity-90 transition duration-300">
+                Request a Sample
+              </a>
+              <a href="#features"
+                class="border-2 border-[#4A90E2] text-[#4A90E2] px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300">
+                Learn More
+              </a>
+              <a href="./assets/datasheet.pdf" download
+            class="bg-white border-2 border-[#4A90E2] text-[#4A90E2] px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300">
+            Download Datasheet
+          </a>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <img src="./Image/product1.jpg" alt="Smart Seal™ Product" class="max-w-full h-auto floating">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold primary-text mb-4">Primarily Used In</h2>
+          <!-- <p class="text-gray-600 max-w-2xl mx-auto">
+                Innovative sealing technology designed for maximum performance, security, and reliability
+            </p> -->
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Feature 1: Power Industry -->
+          <div class="bg-white rounded-xl shadow-lg p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Power Industry</h3>
+            <p class="text-gray-600">Widely used in electrical and energy infrastructure for secure sealing solutions.
+            </p>
+          </div>
+
+          <!-- Feature 2: Smart Meters -->
+          <div class="bg-white rounded-xl shadow-lg p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12a9 9 0 0118 0 9 9 0 11-18 0zm9 3v-3h3" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Smart Meters</h3>
+            <p class="text-gray-600">Essential for ensuring data integrity and tamper-resistance in modern metering
+              systems.</p>
+          </div>
+
+          <!-- Feature 3: Utility Applications -->
+          <div class="bg-white rounded-xl shadow-lg p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Utility Applications</h3>
+            <p class="text-gray-600">Ideal for water, gas, and other public utility systems requiring secure, reliable
+              seals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Product Configuration Section -->
+    <section id="key-features" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold primary-text mb-4">Key Features</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Smart Seal™ is engineered for top-tier performance across demanding environments
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Feature 1: Intelligent Design -->
+          <div class="bg-blue-50 rounded-xl p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+              🤖
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Intelligent Design</h3>
+            <p class="text-gray-700">Adapts to pressure, temperature, and environmental variables in real time.</p>
+          </div>
+
+          <!-- Feature 2: High Compatibility -->
+          <div class="bg-blue-50 rounded-xl p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+              ⚙️
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">High Compatibility</h3>
+            <p class="text-gray-700">Suitable for hydraulic, pneumatic, and rotating systems.</p>
+          </div>
+
+          <!-- Feature 3: Enhanced Durability -->
+          <div class="bg-blue-50 rounded-xl p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+              🛡️
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Enhanced Durability</h3>
+            <p class="text-gray-700">Withstands extreme conditions and mechanical stress.</p>
+          </div>
+
+          <!-- Feature 4: Low Maintenance -->
+          <div class="bg-blue-50 rounded-xl p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+              🧰
+            </div>
+            <h3 class="text-xl font-semibold mb-3 primary-text">Low Maintenance</h3>
+            <p class="text-gray-700">Reduces wear and extends service intervals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Customer Testimonials Section -->
+    <!-- <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold primary-text mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Real experiences from industries that trust Smart Seal™
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8"> -->
+    <!-- Testimonial 2 -->
+    <!-- <div class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold primary-text">Aisha Mehta</h4>
+                            <p class="text-gray-600 text-sm">Logistics Operations Head</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">
+                        "We integrated Smart Seal™ with our existing RFID infrastructure. The result was seamless tracking and improved security across the board."
+                    </p>
+                    <div class="flex"> -->
+    <!-- 5 stars -->
+    <!-- <div class="flex space-x-1 text-yellow-400">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                </div> -->
+
+    <!-- Testimonial 3 -->
+    <!-- <div class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold primary-text">Rajesh Verma</h4>
+                            <p class="text-gray-600 text-sm">Warehouse Supervisor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">
+                        "The chemical-resistant option worked perfectly in our harsh environment. No failures, no tampering. Highly recommended."
+                    </p>
+                    <div class="flex space-x-1 text-yellow-400">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Technical Documentation Section -->
+    <section id="applications" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold primary-text mb-4">Applications of Smart Seal™</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Smart Seal™ is trusted across a wide range of industries for its reliability, durability, and tamper-evident
+            security.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-flashlight-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Power Industry</h4>
+            <p class="text-sm text-gray-600">Securing energy meters, panels, and distribution systems.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-car-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Automotive Systems</h4>
+            <p class="text-sm text-gray-600">Used in fuel systems and component testing environments.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-restaurant-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Food & Beverage</h4>
+            <p class="text-sm text-gray-600">Ensures hygiene and integrity in processing equipment.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-oil-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Oil & Gas</h4>
+            <p class="text-sm text-gray-600">Protects valves, tanks, and meters in harsh conditions.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-sun-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Renewable Energy</h4>
+            <p class="text-sm text-gray-600">Deployed in solar and wind power installations.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-plane-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Aerospace & Aviation</h4>
+            <p class="text-sm text-gray-600">Used in maintenance, testing, and equipment sealing.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-robot-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Industrial Automation</h4>
+            <p class="text-sm text-gray-600">Secures robotic systems and automated machinery.</p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-xl hover-lift">
+            <i class="ri-bar-chart-2-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Smart Grids</h4>
+            <p class="text-sm text-gray-600">Integrated with smart metering and monitoring systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Product Comparison Section -->
+    <section id="comparison" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold primary-text mb-4">Smart Seal™ vs Traditional Seals</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            See how Smart Seal™ stands out against conventional sealing solutions.
+          </p>
+        </div>
+        <div class="overflow-auto">
+          <table class="table-auto w-full border border-gray-300">
+            <thead class="bg-blue-100">
+              <tr>
+                <th class="px-6 py-3 text-left">Feature</th>
+                <th class="px-6 py-3 text-left">Smart Seal™</th>
+                <th class="px-6 py-3 text-left">Traditional Seal</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4">Tamper Evidence</td>
+                <td class="px-6 py-4">High</td>
+                <td class="px-6 py-4">Moderate</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Digital Tracking</td>
+                <td class="px-6 py-4">Yes (QR, RFID, IoT)</td>
+                <td class="px-6 py-4">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Customizability</td>
+                <td class="px-6 py-4">High (Wire, Material, Tracking)</td>
+                <td class="px-6 py-4">Low</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Durability</td>
+                <td class="px-6 py-4">Extreme conditions ready</td>
+                <td class="px-6 py-4">Standard environments</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Installation</td>
+                <td class="px-6 py-4">Tool-free or minimal tools</td>
+                <td class="px-6 py-4">Manual tools required</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compatibility Section -->
+    <section id="why-choose" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold primary-text mb-4">Why Choose Smart Seal™?</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Trusted by global industries for unmatched sealing performance, Smart Seal™ offers quality, flexibility, and
+            peace of mind.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div class="bg-blue-50 rounded-xl p-6 hover-lift">
+            <i class="ri-check-double-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Precision Fit</h4>
+            <p class="text-gray-600 text-sm">Engineered for accurate installation and optimal sealing.</p>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 hover-lift">
+            <i class="ri-award-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Global Certifications</h4>
+            <p class="text-gray-600 text-sm">Meets international quality and safety standards.</p>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 hover-lift">
+            <i class="ri-line-chart-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Proven Performance</h4>
+            <p class="text-gray-600 text-sm">Validated across diverse, high-demand environments.</p>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 hover-lift">
+            <i class="ri-expand-diagonal-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Custom Sizing</h4>
+            <p class="text-gray-600 text-sm">Available in various sizes to suit your system perfectly.</p>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 hover-lift">
+            <i class="ri-customer-service-2-line text-3xl primary-text mb-2"></i>
+            <h4 class="font-semibold primary-text">Expert Support</h4>
+            <p class="text-gray-600 text-sm">Access to experienced engineers and technical specialists.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+   <section id="contact" class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Have a question, need a quote, or want to learn more about Smart
+        Seal™ and our custom solutions? Our team is here to help.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Us</h3>
+        <form id="contact-form" class="space-y-6">
+          <div class="form-group relative">
+            <input type="text" id="name" placeholder=" "
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded focus:border-primary focus:outline-none bg-white">
+            <label for="name" class="absolute left-4 top-3 text-gray-500 transition-all">Full Name</label>
+          </div>
+          <div class="form-group relative">
+            <input type="email" id="email" placeholder=" "
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded focus:border-primary focus:outline-none bg-white">
+            <label for="email" class="absolute left-4 top-3 text-gray-500 transition-all">Email Address</label>
+          </div>
+          <div class="form-group relative">
+            <input type="tel" id="phone" placeholder=" "
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded focus:border-primary focus:outline-none bg-white">
+            <label for="phone" class="absolute left-4 top-3 text-gray-500 transition-all">Phone Number</label>
+          </div>
+          <div class="form-group relative">
+            <input type="text" id="subject" placeholder=" "
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded focus:border-primary focus:outline-none bg-white">
+            <label for="subject" class="absolute left-4 top-3 text-gray-500 transition-all">Subject / Inquiry Type</label>
+          </div>
+          <div class="form-group relative">
+            <textarea id="message" rows="4" placeholder=" "
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded focus:border-primary focus:outline-none bg-white"></textarea>
+            <label for="message" class="absolute left-4 top-3 text-gray-500 transition-all">Your Message</label>
+          </div>
+          <label class="custom-checkbox">
+            <input type="checkbox" id="consent">
+            <span class="checkmark"></span>
+            <span class="text-gray-600 ml-2">I agree to receive communications from Intelliseal</span>
+          </label>
+          <button type="submit"
+  class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+  Send Message
+</button>
+
+        </form>
+        <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded">
+          Thank you for your message! We'll get back to you shortly.
+        </div>
+        <div id="form-error" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded">
+          There was an error sending your message. Please try again.
+        </div>
+      </div>
+      <div>
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">Our Office</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary mr-4">
+                <i class="ri-map-pin-line"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-medium text-gray-800">Headquarters</h4>
+                <p class="text-gray-600">Sankrail Industrial Park, NH 6,<br>
+                  PO Dhulagarh, Howrah 711302<br>
+                  India</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary mr-4">
+                <i class="ri-phone-line"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-medium text-gray-800">Phone</h4>
+                <p class="text-gray-600">+91-8240003455</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary mr-4">
+                <i class="ri-mail-line"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                <p class="text-gray-600">sales@intelliseal.in</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-primary mr-4">
+                <i class="ri-time-line"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-medium text-gray-800">Business Hours</h4>
+                <p class="text-gray-600">Monday – Saturday: 9:00 AM – 6:00 PM </p>
+                <p>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">Find Us</h3>
+          <div class="w-full h-64 rounded-lg overflow-hidden">
+            <div class="w-full h-full"
+              style="background-image: url('./Image/map.png'); background-position: center; background-size: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a href="#home" class="block mb-4">
+              <img src="./Image/logowhite.png" alt="Logo" class="h-10 w-auto">
+            </a>
+            <p class="text-gray-400 mb-6">
+              Delivering secure, tamper-proof sealing solutions for utilities and industries.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition duration-300">
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition duration-300">
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition duration-300">
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition duration-300">
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+              <li><a href="#products" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
+              <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+              <!-- <li><a href="#reviews" class="text-gray-400 hover:text-white transition duration-300">Reviews</a></li> -->
+              <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Products</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SmartGuard Tamper Resistant
+                  Container Lock</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tamper Evident Spring
+                  Lock</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SmartShield Tamper Proof
+                  Plastic Double Lock Security Seal </a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">TamperSaf Water Meter
+                  Seal</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">TriGrip Security Seal</a>
+              </li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">IShield Tamper Eviddent
+                  Meter Seal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+            <p class="text-gray-400 mb-4">Stay updated with our latest products and offers.</p>
+            <form class="flex mb-4">
+              <input type="email" placeholder="Your email"
+                class="px-4 py-2 w-full border-none !rounded-l-button text-gray-800 focus:outline-none">
+              <button type="submit"
+                class="bg-primary px-4 !rounded-r-button whitespace-nowrap hover:bg-blue-600 transition duration-300">Subscribe</button>
+            </form>
+            <div class="flex items-center space-x-3">
+              <span class="text-gray-400">Payment Methods:</span>
+              <i class="ri-visa-fill ri-lg"></i>
+              <i class="ri-mastercard-fill ri-lg"></i>
+              <i class="ri-paypal-fill ri-lg"></i>
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-800 text-center md:flex md:justify-between md:text-left">
+          <p class="text-gray-400">© 2025 Intelliseal. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white mx-3 transition duration-300">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white mx-3 transition duration-300">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Enhanced Smooth Scrolling for All Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return; // Skip empty hash links
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Get header height for offset
+            const headerHeight = document.querySelector('header').offsetHeight;
+            // Calculate target position with offset
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            // Smooth scroll to target
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            // Close mobile menu if open
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+            }
+            // Update active state in navigation
+            document.querySelectorAll('nav a').forEach(link => {
+              link.classList.remove('text-primary');
+              link.classList.add('text-gray-700');
+            });
+            this.classList.remove('text-gray-700');
+            this.classList.add('text-primary');
+          }
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      // Review Carousel with improved navigation
+      const reviewSlider = document.getElementById('review-slider') || document.querySelector('.review-slider');
+      const prevButton = document.getElementById('prev-button') || document.querySelector('.prev-button');
+      const nextButton = document.getElementById('next-button') || document.querySelector('.next-button');
+      const dots = document.querySelectorAll('.dot');
+      const totalSlides = document.querySelectorAll('.review-slider > div').length;
+      let currentIndex = 0;
+      let slideWidth = 100; // percentage
+      let slidesPerView = 1;
+      let maxIndex = totalSlides - 1;
+      let isAnimating = false;
+      const animationDuration = 500; // ms
+      function initializeCarousel() {
+        // Determine slides per view based on screen width
+        if (window.innerWidth >= 768) {
+          slidesPerView = 3;
+          slideWidth = 33.333;
+          maxIndex = totalSlides - slidesPerView;
+        } else {
+          slidesPerView = 1;
+          slideWidth = 100;
+          maxIndex = totalSlides - 1;
+        }
+        // Reset position and update view
+        currentIndex = Math.min(currentIndex, maxIndex);
+        updateSlider(false);
+      }
+      function updateSlider(animate = true) {
+        if (isAnimating) return;
+        isAnimating = animate;
+        const translation = -currentIndex * slideWidth;
+        reviewSlider.style.transition = animate ? `transform ${animationDuration}ms ease-in-out` : 'none';
+        reviewSlider.style.transform = `translateX(${translation}%)`;
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add('bg-primary');
+            dot.classList.remove('bg-gray-300');
+          } else {
+            dot.classList.remove('bg-primary');
+            dot.classList.add('bg-gray-300');
+          }
+        });
+        if (animate) {
+          setTimeout(() => {
+            isAnimating = false;
+          }, animationDuration);
+        }
+      }
+      function nextSlide() {
+        if (isAnimating) return;
+        if (currentIndex >= maxIndex) {
+          // Loop back to start with animation
+          currentIndex = 0;
+        } else {
+          currentIndex++;
+        }
+        updateSlider();
+      }
+      function prevSlide() {
+        if (isAnimating) return;
+        if (currentIndex <= 0) {
+          // Loop to end with animation
+          currentIndex = maxIndex;
+        } else {
+          currentIndex--;
+        }
+        updateSlider();
+      }
+      // Event Listeners
+      prevButton.addEventListener('click', prevSlide);
+      nextButton.addEventListener('click', nextSlide);
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          if (isAnimating) return;
+          currentIndex = Math.min(index, maxIndex);
+          updateSlider();
+        });
+      });
+      // Auto slide functionality
+      let autoSlideInterval;
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+      // Handle carousel hover
+      const carousel = document.querySelector('.review-carousel');
+      carousel.addEventListener('mouseenter', stopAutoSlide);
+      carousel.addEventListener('mouseleave', startAutoSlide);
+      // Handle transitions
+      reviewSlider.addEventListener('transitionend', () => {
+        isAnimating = false;
+      });
+      // Handle window resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          initializeCarousel();
+        }, 250);
+      });
+      // Initialize carousel
+      initializeCarousel();
+      startAutoSlide();
+      // Read More functionality
+      const readMoreButtons = document.querySelectorAll('.read-more');
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const extendedReview = this.nextElementSibling;
+          extendedReview.classList.toggle('hidden');
+          this.textContent = extendedReview.classList.contains('hidden') ? 'Read More' : 'Read Less';
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      // Video Player
+      const videoContainer = document.querySelector('.video-container');
+      const playButton = document.querySelector('.play-button');
+      playButton.addEventListener('click', function () {
+        // In a real implementation, this would create a video element and start playing
+        alert('Video player would start here. This is a placeholder for demonstration purposes.');
+      });
+      // Back to Top Button
+      const backToTopButton = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      // Form Validation and Submission
+      const contactForm = document.getElementById('contact-form');
+      const formSuccess = document.getElementById('form-success');
+      const formError = document.getElementById('form-error');
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Simple validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        if (!name || !email || !message) {
+          formError.classList.remove('hidden');
+          formSuccess.classList.add('hidden');
+          return;
+        }
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          formError.textContent = 'Please enter a valid email address.';
+          formError.classList.remove('hidden');
+          formSuccess.classList.add('hidden');
+          return;
+        }
+        // Simulate form submission
+        contactForm.reset();
+        formSuccess.classList.remove('hidden');
+        formError.classList.add('hidden');
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formSuccess.classList.add('hidden');
+        }, 5000);
+      });
+      // Counter Animation
+      const counters = document.querySelectorAll('.counter');
+      const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let count = 0;
+        const increment = target / 50; // Speed of counting
+        const updateCounter = () => {
+          if (count < target) {
+            count += increment;
+            counter.textContent = Math.ceil(count) + (counter.textContent.includes('+') ? '+' : '');
+            setTimeout(updateCounter, 20);
+          } else {
+            counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+          }
+        };
+        updateCounter();
+      };
+      // Intersection Observer for counters
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(counter => {
+        counterObserver.observe(counter);
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    const downloadBtn = document.querySelector('a[href$="datasheet.pdf"]');
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function () {
+        console.log("Datasheet download initiated");
+
+        // Optional: Trigger file download explicitly (modern browsers already handle this)
+        const link = document.createElement('a');
+        link.href = this.href;
+        link.download = 'SmartSeal_Datasheet.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  });
+  </script>
+
+  </html>
